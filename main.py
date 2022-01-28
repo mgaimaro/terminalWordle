@@ -21,10 +21,10 @@ def main():
     gameWord = random.choice(wordList.fiveLetterWords)
     solved = False
     guesses = []
-    colorMap = [["", "", "", "", ""],["", "", "", "", ""],["", "", "", "", ""],["", "", "", "", ""],["", "", "", "", ""]]
+    colorMap = [["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""]]
     count = 0
 
-    while count < 5:
+    while count < 6:
         val = input("Enter a 5 Letter Word: ").lower()
         if val in guesses:
             print("Already Guessed")
