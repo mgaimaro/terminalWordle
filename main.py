@@ -14,13 +14,25 @@ def findOccurrences(str, ch):
 def printGameBoard(guesses, colorMap):
     for row in range(len(guesses)):
         for letter in range(5):
-            print(colorMap[row][letter] + guesses[row][letter] + colorCodes.ENDC, end =" ")
+            print(colorMap[row][letter] + guesses[row][letter] + colorCodes.ENDC, end=" ")
         print()
+
+def appendStats(gameWord, guesses, solved):
+    statFile = open("stats.txt", "a")
+    if solved:
+        statFile.write("You solved " + gameWord + " in " + str(len(guesses)) + " guesses\n")
+    else:
+        statFile.write("You did not solve " + gameWord + "\n")
+    for word in guesses:
+        statFile.write(word + "\n")
+    statFile.write("\n")
+    statFile.close()
 
 def main():
     gameWord = random.choice(wordList.fiveLetterWords)
     solved = False
     guesses = []
+    colorStore = []
     colorMap = [["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""], ["","","","",""]]
     count = 0
 
@@ -55,7 +67,9 @@ def main():
 
 
     if not solved:
-        print("The correct word was:", gameWord) 
+        print("The correct word was:", gameWord)
+    
+    appendStats(gameWord, guesses, solved)
 
 if __name__ == '__main__':
     main()
