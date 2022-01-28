@@ -1,6 +1,3 @@
-# terminalWordle
-Play the game Wordle in your Bash terminal
-
 # How to run
 In the terminalWordle directory, type python3 main.py
 
